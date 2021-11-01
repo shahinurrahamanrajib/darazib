@@ -9,6 +9,7 @@ class Page1 extends StatefulWidget {
 
 class _Page1State extends State<Page1> {
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,11 +26,17 @@ class MyPage extends StatefulWidget {
 }
 class _MyPageState extends State<MyPage> {
   int _re=0;
+  final GlobalKey<ScaffoldState> _globalKey=GlobalKey<ScaffoldState>();
 
+  _showSnackbar(){
+    var _mySnackbar=SnackBar(content: Text('SnackBar'),);
+    _globalKey.currentState! _showSnackbar(_mySnackbar);
+  }
   @override
 
   Widget build(BuildContext context) {
     return  Scaffold(
+      key: _globalKey,
       appBar: AppBar(
         title: Text('Flutter Demo Home Page'),
         actions: <Widget>[
@@ -41,13 +48,15 @@ class _MyPageState extends State<MyPage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('You have pushed the button this many times:'),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('You have pushed the button this many times:'),
 
-             Text('$_re',style: TextStyle(fontSize: 50),),
-          ],
+               Text('$_re',style: TextStyle(fontSize: 50),),
+            ],
+          ),
         ),
 
       ),

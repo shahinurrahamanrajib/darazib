@@ -37,6 +37,7 @@ dependencies:
 
 dev_dependencies:
   flutter_test:
+    fluttertoast: ^8.0.8
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
